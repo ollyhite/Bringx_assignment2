@@ -46,7 +46,11 @@ form textarea {
 form .button {
   margin-top: 20px;
 }
-
+form p {
+  margin: 0px;
+  font-size: 1rem;
+  color: red;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
