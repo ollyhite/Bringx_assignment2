@@ -28,7 +28,10 @@ app.use(function (req, res, next) {
 
 app.post("/emails", (req, res) => {
   sgMail.setApiKey(apiKey);
-  const data = req.body;
+  let data = JSON.parse(req.body);
+  //   if (typeof data == "string") {
+  //     data = JSON.parse(data);
+  //   }
   console.log("data!!!!!!!!", data);
   const msg = {
     to: data.to,
@@ -44,6 +47,7 @@ app.post("/emails", (req, res) => {
   res.send({
     express: "Your Email send",
     data: data,
+    type: typeof data,
     msg: {
       to: data.to,
       from: "ollylee8520@gmail.com",
