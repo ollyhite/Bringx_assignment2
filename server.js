@@ -43,6 +43,7 @@ app.post("/emails", (req, res) => {
     .catch(console.log);
   res.send({
     express: "Your Email send",
+    data: data,
     msg: {
       to: data.to,
       from: "ollylee8520@gmail.com",
