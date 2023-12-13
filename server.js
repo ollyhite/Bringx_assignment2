@@ -41,5 +41,14 @@ app.post("/emails", (req, res) => {
     .send(msg)
     .then(() => console.log("send mail success"))
     .catch(console.log);
-  res.send({ express: "YOUR EXPRESS BACKEND IS CONNECTED TO REACT" });
+  res.send({
+    express: "Your Email send",
+    msg: {
+      to: data.to,
+      from: "ollylee8520@gmail.com",
+      subject: data.subject,
+      text: data.body,
+      html: `<strong>${data.body}</strong>`,
+    },
+  });
 });

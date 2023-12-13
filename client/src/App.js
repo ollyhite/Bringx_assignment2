@@ -15,7 +15,7 @@ function App() {
       : `http://localhost:8082`;
     try {
       const response = await axios.post(`${url}/emails`, {
-        to: data.toEmail,
+        to: data.to,
         subject: data.subject,
         body: data.body,
       });
@@ -35,7 +35,7 @@ function App() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <h4>Email to</h4>
           <input
-            {...register("toEmail", {
+            {...register("to", {
               required: "Email Address is required",
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -43,7 +43,7 @@ function App() {
               },
             })}
           />
-          {errors.toEmail && <p role="alert">{errors.toEmail.message}</p>}
+          {errors.to && <p role="alert">{errors.to.message}</p>}
           <h4>Email Subject</h4>
           <input
             {...register("subject", { required: "Email Subject is required" })}
