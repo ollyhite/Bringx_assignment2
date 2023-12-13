@@ -12,9 +12,9 @@ function App() {
     console.log(data);
     const url = process.env.REACT_APP_SERVER
       ? process.env.REACT_APP_SERVER
-      : `http://localhost`;
+      : `http://localhost:8082`;
     try {
-      const response = await axios.post(`${url}:8082/emails`, {
+      const response = await axios.post(`${url}/emails`, {
         to: data.toEmail,
         subject: data.subject,
         body: data.body,
